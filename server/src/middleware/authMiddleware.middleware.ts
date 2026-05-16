@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import type { NextFunction, Request, Response } from "express";
-import blacklistingToken from "../model/TokenBlackListing.ts";
+import blacklistingToken from "../model/TokenBlackListing";
 
 export const authMiddleware = async (
   req: Request,

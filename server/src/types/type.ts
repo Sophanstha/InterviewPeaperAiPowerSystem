@@ -32,7 +32,7 @@ export interface Iperpationplan extends Document {
 export interface IinterviewReport extends Document {
   jobDescription: string;
   resume: string;
-  selfDescriptiom: string;
+  selfDescription: string;
   score: number;
   preparationPlan : [Iperpationplan],
   skillGap : [IskillGap],

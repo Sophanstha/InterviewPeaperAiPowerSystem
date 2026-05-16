@@ -4,8 +4,8 @@ import {
   loginUser,
   logout,
   registerUser,
-} from "../controller/auth.controller.ts";
-import { authMiddleware } from "../middleware/authMiddleware.middleware.ts";
+} from "../controller/auth.controller";
+import { authMiddleware } from "../middleware/authMiddleware.middleware";
 
 const authRoute = Router();
 authRoute.route("/userRegister").post(registerUser);

@@ -452,7 +452,8 @@ ${jobDescription}
 const generatePDFformat = async (htmlcontent: string) => { 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.setContent(htmlcontent, { waitUntil: "networkidle0" });
+  await page.setContent
+  (htmlcontent, { waitUntil: "networkidle0" as any});
   const pdfBuffer = await page.pdf({ format: "A4",
   margin: {
       top: "20px",

@@ -90,7 +90,7 @@ const interviewReportSchema = new Schema<IinterviewReport>({
     type: String,
   },
 
-  selfDescriptiom: {
+  selfDescription: {
     type: String,
   },
 

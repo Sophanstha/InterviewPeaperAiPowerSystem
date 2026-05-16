@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { authMiddleware } from "../middleware/authMiddleware.middleware.ts";
-import { upload } from "../middleware/file.middleware.ts";
-import { generateInterviewReportController, getInterviewResportById,  getUserReports,generateResume } from "../controller/interviewreport.controller.ts";
+import { authMiddleware } from "../middleware/authMiddleware.middleware";
+import { upload } from "../middleware/file.middleware";
+import { generateInterviewReportController, getInterviewResportById,  getUserReports,generateResume } from "../controller/interviewreport.controller";
 
 const Interviewrouter = Router()
 Interviewrouter.route("/").post(authMiddleware,upload.single("resume"),generateInterviewReportController)

@@ -3,8 +3,8 @@ import { PDFParse } from "pdf-parse";
 import {
   generateInterviewReport,
   generateResumePdf,
-} from "../services/ai.service.ts";
-import Interview from "../model/interview.model.ts";
+} from "../services/ai.service";
+import Interview from "../model/interview.model";
 
 export const generateInterviewReportController = async (
   req: Request,
@@ -124,12 +124,12 @@ export const generateResume = async (req: Request, res: Response) => {
       });
     }
 
-    const { resume, selfDescriptiom, jobDescription } = interviewReport;
+    const { resume, selfDescription, jobDescription } = interviewReport;
 
     const pdfBuffer = await generateResumePdf({
       resume,
       jobDescription,
-      selfDescriptiom
+      selfDescription
     });
     console.log(pdfBuffer)
 

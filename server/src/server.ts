@@ -3,10 +3,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 
-import { connectDb } from "./config/connectDb.ts";
-import authRoute from "./route/auth.router.ts";
+import { connectDb } from "./config/connectDb";
+import authRoute from "./route/auth.router";
 // import { generateInterviewReport } from "./services/ai.service.ts";
-import Interviewrouter from "./route/interview.route.ts";
+import Interviewrouter from "./route/interview.route";
 
 dotenv.config();
 
