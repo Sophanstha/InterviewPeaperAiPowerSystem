@@ -39,10 +39,10 @@ export const registerUser = async (req: Request, res: Response) => {
 
     // set cookie
     res.cookie("token", token, {
-  httpOnly: true,
-  secure: true,           // ✅ required for cross-domain
-  sameSite: 'none',       // ✅ required for cross-domain
-  maxAge: 7 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+      secure: true, // ✅ required for cross-domain
+      sameSite: "none", // ✅ required for cross-domain
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
     return res.status(201).json({
@@ -80,11 +80,12 @@ export const loginUser = async (req: Request, res: Response) => {
     const token = generateToken(user._id.toString());
 
     // set cookie
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: false,
-      sameSite: "strict",
-    });
+   res.cookie("token", token, {
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+  maxAge: 7 * 24 * 60 * 60 * 1000,
+});
 
     return res.status(200).json({
       message: "Login successful",
@@ -116,7 +117,7 @@ export const getMe = async (req: Request, res: Response) => {
   try {
     const userId = req.user.id;
     const user = await User.findById(userId).select("-password");
-    
+
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -124,7 +125,6 @@ export const getMe = async (req: Request, res: Response) => {
       message: "User fetched successfully",
       user,
     });
-    
   } catch (error) {
     if (error instanceof Error) {
       return res.status(401).json({
