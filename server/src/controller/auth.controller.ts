@@ -39,9 +39,10 @@ export const registerUser = async (req: Request, res: Response) => {
 
     // set cookie
     res.cookie("token", token, {
-      httpOnly: true,
-      secure: false, // true in production (https)
-      sameSite: "strict",
+  httpOnly: true,
+  secure: true,           // ✅ required for cross-domain
+  sameSite: 'none',       // ✅ required for cross-domain
+  maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
     return res.status(201).json({
