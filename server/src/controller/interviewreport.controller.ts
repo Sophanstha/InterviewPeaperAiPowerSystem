@@ -3,8 +3,8 @@ import { PDFParse } from "pdf-parse";
 import {
   generateInterviewReport,
   generateResumePdf,
-} from "../services/ai.service";
-import Interview from "../model/interview.model";
+} from "../services/ai.service.js";
+import Interview from "../model/interview.model.js";
 
 export const generateInterviewReportController = async (
   req: Request,

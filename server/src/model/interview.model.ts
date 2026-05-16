@@ -5,7 +5,7 @@ import type {
   Iperpationplan,
   IskillGap,
   ItechicalQuestion,
-} from "../types/type";
+} from "../types/type.js";
 
 const technicalQuestionSchema = new Schema<ItechicalQuestion>(
   {

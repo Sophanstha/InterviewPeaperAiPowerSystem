@@ -1,8 +1,8 @@
 import type { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { User } from "../model/Auth.model";
-import blacklistingToken from "../model/TokenBlackListing";
+import { User } from "../model/Auth.model.js";
+import blacklistingToken from "../model/TokenBlackListing.js";
 
 const generateToken = (id: string) => {
   return jwt.sign({ id }, process.env.JWT_SECRET as string, {
