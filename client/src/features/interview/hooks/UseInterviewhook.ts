@@ -29,7 +29,7 @@ export const useInterviewHook = () => {
     jobDescription,
     resume,
     selfDescription,
-  }: generateReportProps): InterviewReportData => {
+  }: generateReportProps):Promise<InterviewReportData> => {
     setloading(true);
     try {
       const { data } = await generateInterviewReport({

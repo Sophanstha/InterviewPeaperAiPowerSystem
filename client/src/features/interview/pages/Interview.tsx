@@ -30,7 +30,7 @@ const NAV_ITEMS = [
   },
 ];
 
-const QuestionCard = ({ item, index }) => {
+const QuestionCard = ({ item, index }:{item :any ,index:number}) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -79,7 +79,7 @@ const QuestionCard = ({ item, index }) => {
   );
 };
 
-const RoadMapDay = ({ day }) => (
+const RoadMapDay = ({ day }:{day : any}) => (
   <div className="bg-[#111827] border border-white/10 rounded-2xl p-5">
     <div className="flex items-center gap-4 mb-4">
       <span className="px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 text-xs font-semibold">
@@ -90,7 +90,7 @@ const RoadMapDay = ({ day }) => (
     </div>
 
     <ul className="space-y-3">
-      {day.tasks.map((task, i) => (
+      {day.tasks.map((task:any, i:any) => (
         <li key={i} className="flex items-center gap-3 text-gray-300">
           <span className="w-2 h-2 rounded-full bg-pink-500" />
           {task}

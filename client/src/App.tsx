@@ -1,5 +1,3 @@
-import React from 'react'
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Routes } from 'react-router-dom'
 
 
 const App = () => {
