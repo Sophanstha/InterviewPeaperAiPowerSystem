@@ -13,7 +13,7 @@ dotenv.config();
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://interview-peaper-ai-power-system.vercel.app",
     credentials: true,
   })
 );
