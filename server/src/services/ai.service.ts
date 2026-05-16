@@ -2,6 +2,7 @@ import { GoogleGenAI } from "@google/genai";
 import z from "zod";
 import dotenv from "dotenv";
 import puppeteer from "puppeteer";
+import chromium from '@sparticuz/chromium';
 dotenv.config();
 const ai = new GoogleGenAI({
   apiKey: process.env.AI_API_KEY,
@@ -448,28 +449,28 @@ ${jobDescription}
   }
 };
 
-const generatePDFformat = async (htmlcontent: string) => { 
-  const browser = await puppeteer.launch({
-  headless: true,
- args: [
-    '--no-sandbox',
-    '--disable-setuid-sandbox',
-    '--disable-dev-shm-usage',  // important on Render (limited /dev/shm)
-    '--disable-gpu',
-  ],
-});
-  const page = await browser.newPage();
-  await page.setContent
-  (htmlcontent, { waitUntil: "networkidle0" as any});
-  const pdfBuffer = await page.pdf({ format: "A4",
-  margin: {
-      top: "20px",
-      right: "20px",
-      bottom: "20px",
-      left: "20px",
-    },
 
+const generatePDFformat = async (htmlcontent: string) => {
+  const browser = await puppeteer.launch({
+    args: chromium.args,
+    executablePath: await chromium.executablePath(),
+    headless: true,
+    defaultViewport: { width: 1280, height: 800 },
   });
+
+  const page = await browser.newPage();
+  await page.setContent(htmlcontent, { waitUntil: 'networkidle0' as any });
+
+  const pdfBuffer = await page.pdf({
+    format: 'A4',
+    margin: {
+      top: '20px',
+      right: '20px',
+      bottom: '20px',
+      left: '20px',
+    },
+  });
+
   await browser.close();
   return pdfBuffer;
 };
